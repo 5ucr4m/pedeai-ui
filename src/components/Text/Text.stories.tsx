@@ -1,23 +1,17 @@
 import { StoryFn, Meta } from "@storybook/react";
-import Text from "./Text";
+import { Text as TextBase } from "./Text";
 
 export default {
   title: "ReactComponentLibrary/Text",
-  component: Text,
-} as Meta<typeof Text>;
+  component: TextBase,
+} as Meta<typeof TextBase>;
 
-const Template: StoryFn<typeof Text> = ({ children, ...args }) => (
-  <Text {...args}>{children}</Text>
+const Template: StoryFn<typeof TextBase> = ({ children, ...args }) => (
+  <TextBase {...args}>{children}</TextBase>
 );
 
-export const TextTest = Template.bind({});
-TextTest.args = {
-  size: 12,
-  children: "Hello World",
-};
-
-export const TextSecondary = Template.bind({});
-TextSecondary.args = {
-  size: 22,
+export const Text = Template.bind({});
+Text.args = {
+  size: 14,
   children: "Hello World",
 };

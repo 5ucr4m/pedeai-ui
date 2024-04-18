@@ -1,3 +1,4 @@
+import path from "path"
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
@@ -27,7 +28,11 @@ export default [
     ],
     plugins: [
       peerDepsExternal(),
-      resolve(),
+      resolve({
+        alias: {
+          "@": path.resolve(__dirname, "./src"),
+        },
+      }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
